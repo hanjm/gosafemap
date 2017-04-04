@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	defaultShardCount uint8 = 32
+	defaultShardCount uint16 = 32
 )
 
 // syncMap wraps built-in map by using RWMutex for concurrent safe.
@@ -31,7 +31,7 @@ func New() *SyncMap {
 
 // Create a new SyncMap with given shard count.
 // NOTE: shard count must be power of 2, default shard count will be used otherwise.
-func NewWithShard(shardCount uint8) *SyncMap {
+func NewWithShard(shardCount uint16) *SyncMap {
 	if !isPowerOfTwo(shardCount) {
 		shardCount = defaultShardCount
 	}
@@ -183,7 +183,7 @@ func bkdrHash(str string) uint32 {
 	return h
 }
 
-func isPowerOfTwo(x uint8) bool {
+func isPowerOfTwo(x uint16) bool {
 	return x != 0 && (x&(x-1) == 0)
 }
 
