@@ -20,7 +20,7 @@ type syncMap struct {
 // SyncMap keeps a slice of *syncMap with length of `shardCount`.
 // Using a slice of syncMap instead of a large one is to avoid lock bottlenecks.
 type SyncMap struct {
-	shardCount uint8
+	shardCount uint16
 	shards     []*syncMap
 }
 
