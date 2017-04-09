@@ -31,7 +31,7 @@ func New() *SyncMap {
 
 // Create a new SyncMap with given shard count.
 // NOTE: shard count must be power of 2, default shard count will be used otherwise.
-func NewWithShard(shardCount uint16) *SyncMap {
+func NewWithShard(shardCount uint16, preSize uint16) *SyncMap {
 	if !isPowerOfTwo(shardCount) {
 		shardCount = defaultShardCount
 	}
@@ -39,14 +39,14 @@ func NewWithShard(shardCount uint16) *SyncMap {
 	m.shardCount = shardCount
 	m.shards = make([]*syncMap, m.shardCount)
 	for i, _ := range m.shards {
-		m.shards[i] = &syncMap{items: make(map[string]interface{})}
+		m.shards[i] = &syncMap{items: make(map[string]interface{}, preSize)}
 	}
 	return m
 }
 
 // Find the specific shard with the given key
 func (m *SyncMap) locate(key string) *syncMap {
-	return m.shards[bkdrHash(key)&uint32((m.shardCount-1))]
+	return m.shards[bkdrHash(key)&uint32((m.shardCount - 1))]
 }
 
 // Retrieves a value
