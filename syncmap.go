@@ -9,6 +9,7 @@ import (
 
 const (
 	defaultShardCount uint16 = 32
+	defaultPreSize    uint16 = 100
 )
 
 // syncMap wraps built-in map by using RWMutex for concurrent safe.
@@ -26,7 +27,7 @@ type SyncMap struct {
 
 // Create a new SyncMap with default shard count.
 func New() *SyncMap {
-	return NewWithShard(defaultShardCount)
+	return NewWithShard(defaultShardCount, defaultPreSize)
 }
 
 // Create a new SyncMap with given shard count.
