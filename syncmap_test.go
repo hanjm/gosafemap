@@ -18,8 +18,8 @@ func Test_New(t *testing.T) {
 		t.Error("New(): new map should be empty")
 	}
 
-	var shardCount uint8 = 64
-	m2 := NewWithShard(shardCount)
+	var shardCount uint16 = 64
+	m2 := NewWithShard(shardCount,defaultPreSize)
 	if m2 == nil {
 		t.Error("NewWithShard(): map is nil")
 	}
@@ -93,8 +93,8 @@ func Test_Size(t *testing.T) {
 }
 
 func Test_Flush(t *testing.T) {
-	var shardCount uint8 = 64
-	m := NewWithShard(shardCount)
+	var shardCount uint16 = 64
+	m := NewWithShard(shardCount,defaultPreSize)
 	for i := 0; i < 42; i++ {
 		m.Set(strconv.Itoa(i), i)
 	}
