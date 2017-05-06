@@ -1,8 +1,6 @@
 syncmap
 =======
 
-[![GoDoc](https://godoc.org/github.com/DeanThompson/syncmap?status.svg)](https://godoc.org/github.com/DeanThompson/syncmap) [![Build Status](https://travis-ci.org/DeanThompson/syncmap.svg?branch=master)](https://travis-ci.org/DeanThompson/syncmap)
-
 A thread safe map implementation for Golang
 
 ## Usage
@@ -10,7 +8,7 @@ A thread safe map implementation for Golang
 Install with:
 
 ```bash
-go get github.com/DeanThompson/syncmap
+go get github.com/hanjm/gosafemap
 ```
 
 Example:
@@ -19,7 +17,7 @@ Example:
 import (
     "fmt"
 
-    "github.com/DeanThompson/syncmap"
+    "github.com/hanjm/gosafemap"
 )
 
 func main() {
