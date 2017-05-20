@@ -1,3 +1,9 @@
+fork from <https://github.com/DeanThompson/syncmap>
+changes:
+- change ShardCount uint8(max255, the max value which can be ShardCount is 128) to uint16(max65535, the max value which can be ShardCount is 32768), 128 is too small.
+- NewWithShard():add shard map preSize, pre allocate memory for large map to improve performance.
+
+======
 syncmap
 =======
 
@@ -8,7 +14,7 @@ A thread safe map implementation for Golang
 Install with:
 
 ```bash
-go get github.com/hanjm/gosafemap
+go get github.com/hanjm/syncmap
 ```
 
 Example:
@@ -17,7 +23,7 @@ Example:
 import (
     "fmt"
 
-    "github.com/hanjm/gosafemap"
+    "github.com/hanjm/syncmap"
 )
 
 func main() {
