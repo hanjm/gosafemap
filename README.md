@@ -1,7 +1,11 @@
 fork from <https://github.com/DeanThompson/syncmap>
+
 changes:
+
+```
 - change ShardCount uint8(max255, the max value which can be ShardCount is 128) to uint16(max65535, the max value which can be ShardCount is 32768), 128 is too small.
 - NewWithShard():add shard map preSize, pre allocate memory for large map to improve performance.
+```
 
 ======
 syncmap
